@@ -1,0 +1,3416 @@
+{
+  "modelName": "polyglot_complet_postgresql",
+  "collections": [
+    {
+      "collectionName": "client",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "client_ref",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Reference pseudonymisee du client",
+          "GUID": "df1a6d1b-8f04-41aa-b86a-a68307de0190",
+          "primaryKeyOptions": [
+            {
+              "GUID": "193d01ad-a0b5-4db3-a7c3-8cd6b6929709",
+              "constraintName": "pk_client",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ],
+          "childRelationships": [
+            "a35a5219-7cca-4c3c-8632-3c5ea62c5f8c",
+            "9da482c6-2267-4ac2-8ab3-c6e80829669a",
+            "6242d595-83e2-4881-b808-06ea3cdfab14"
+          ]
+        },
+        {
+          "code": "",
+          "name": "annee_naissance",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Annee de naissance (la date complete n est pas gardee)",
+          "required": false,
+          "GUID": "af26e98e-04a6-4d3a-96ac-2dc89ac32309"
+        },
+        {
+          "code": "",
+          "name": "pays_residence",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Pays de residence",
+          "GUID": "9df2dd78-d0cf-49b5-89af-2c23be5a6eb7"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "2ab4e0ff-4179-4ccd-b594-a52ce02e651d"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Client pseudonymise. Grain : un client",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "canal",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "canal_code",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "DIRECT, BOOKING, CAMPINGS...",
+          "GUID": "c63fe6ec-5aaf-4b0c-ae96-71b89e080a54",
+          "primaryKeyOptions": [
+            {
+              "GUID": "2788e212-5c02-4419-9e60-826355b0d51c",
+              "constraintName": "pk_canal",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ],
+          "childRelationships": [
+            "d7979095-0649-4809-92ad-3cb2437de935",
+            "51494567-29ea-4922-80dd-07a71a5a394a",
+            "13d0b7a6-0399-4f99-8553-67890238ff66"
+          ]
+        },
+        {
+          "code": "",
+          "name": "libelle",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Libelle du canal",
+          "GUID": "221fc9eb-4d53-43de-a038-ef267902735e"
+        },
+        {
+          "code": "",
+          "name": "est_ota",
+          "isActivated": true,
+          "alternateKey": false,
+          "childType": "boolean",
+          "type": "boolean",
+          "array_type": [],
+          "description": "Vrai si le canal est une agence en ligne (OTA)",
+          "required": false,
+          "GUID": "3d897420-cd9d-4010-93c8-8440c4977b5c"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "0ffa526f-2b28-468b-8752-0917c984702f"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Canaux de vente. Grain : un canal",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "camping",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "camping_nom",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Nom du camping, identifiant (ex. Les Dunes)",
+          "GUID": "b0ddcc87-9110-4ca8-aa23-5f84c8d05ccc",
+          "primaryKeyOptions": [
+            {
+              "GUID": "0b91f69f-60bc-4a60-9d62-a5e38a18319b",
+              "constraintName": "pk_camping",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ],
+          "childRelationships": [
+            "372772ce-9cda-4b30-86b2-5efea7f5d2af",
+            "3ed35f03-d239-4520-8ee6-b397f565b1d5",
+            "684d5429-8b8b-4aa5-96f2-657320617cf2"
+          ]
+        },
+        {
+          "code": "",
+          "name": "commune",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Commune a qui la taxe de sejour est reversee",
+          "GUID": "30342ac6-d66f-4bb1-b7df-f1cdc4db187d"
+        },
+        {
+          "code": "",
+          "name": "classement_etoiles",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Classement en etoiles (3 ou 4)",
+          "required": false,
+          "GUID": "75eb6fb4-8bba-4548-868e-60d83972d469"
+        },
+        {
+          "code": "",
+          "name": "tarif_taxe_adulte_nuit",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "5",
+          "scale": "2",
+          "array_type": [],
+          "description": "Tarif de la taxe par adulte et par nuit, en euros (0,60 pour l exercice)",
+          "required": false,
+          "GUID": "80dc933d-3ba2-4e07-8fe1-e83f75ba850e"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "1d910f67-34ab-40b7-9edf-2df02a4dc1d2"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Les 4 campings du groupe. Grain : un camping",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "categorie",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "categorie_code",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "NU nu, MH mobil-home, PR premium",
+          "GUID": "9f0a0945-a783-4607-a8f7-8d3e1ed7a291",
+          "primaryKeyOptions": [
+            {
+              "GUID": "60ef1d7c-a2f6-4026-b374-9345db60b5f6",
+              "constraintName": "pk_categorie",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ],
+          "childRelationships": [
+            "ecaa5bbe-7924-4dc9-b0a5-d977357bcdea",
+            "1a869fb2-5a39-48d5-90ea-f57ca8f9b090",
+            "e025aa88-232e-4e09-8a62-4a874ee5ad8e"
+          ]
+        },
+        {
+          "code": "",
+          "name": "libelle",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Libelle de la categorie",
+          "GUID": "46ec9b92-fe91-4796-a79c-46ffc1d707ec"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "3a72ca70-d883-437b-aad9-8ed55775cbb3"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Referentiel des categories. Grain : une categorie",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "emplacement",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "emplacement_id",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Identifiant de l emplacement (ex. E05)",
+          "GUID": "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91",
+          "primaryKeyOptions": [
+            {
+              "GUID": "bcd99e48-f5bd-479f-9f35-4c2dd984c126",
+              "constraintName": "pk_emplacement",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ],
+          "childRelationships": [
+            "311323e4-0f4a-410f-8c91-85f5a9394102",
+            "76abae58-1b6e-4325-a1f7-20c60d8d8ef1",
+            "dbecee89-8f3b-4e8b-b76d-ff3b0576785b",
+            "1d01a7c7-53aa-4843-b781-069f49e447a6"
+          ]
+        },
+        {
+          "code": "",
+          "name": "camping_nom",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Camping de l emplacement",
+          "GUID": "267ab42f-69fb-4655-a35c-217d571215ba",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "372772ce-9cda-4b30-86b2-5efea7f5d2af",
+          "foreignCollection": "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+          "foreignField": [
+            "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+            "b0ddcc87-9110-4ca8-aa23-5f84c8d05ccc"
+          ]
+        },
+        {
+          "code": "",
+          "name": "categorie_code",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Categorie de l emplacement",
+          "GUID": "11023e21-29ee-4bc5-9994-0569d0353c51",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "ecaa5bbe-7924-4dc9-b0a5-d977357bcdea",
+          "foreignCollection": "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+          "foreignField": [
+            "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+            "9f0a0945-a783-4607-a8f7-8d3e1ed7a291"
+          ]
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "48b585ef-77ee-4410-8076-e7b1b5712152"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Emplacements loues. Grain : un emplacement",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "sejour",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "sejour_id",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Identifiant du sejour dans le PMS (ex. S005)",
+          "GUID": "16813e14-997a-4971-a8df-3c530c6528e2",
+          "primaryKeyOptions": [
+            {
+              "GUID": "060c0f3f-6cb6-4cd6-b88b-c936243370cc",
+              "constraintName": "pk_sejour",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ],
+          "childRelationships": [
+            "35ad4a43-768f-47fe-91cd-914e1c7d1de2",
+            "6b3dfde4-5ada-4a95-bad6-622d0bfd2a91"
+          ]
+        },
+        {
+          "code": "",
+          "name": "client_ref",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Client pseudonymise",
+          "GUID": "bd25ef7d-58c5-4d05-9b23-127e032b7c4e",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "a35a5219-7cca-4c3c-8632-3c5ea62c5f8c",
+          "foreignCollection": "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+          "foreignField": [
+            "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+            "df1a6d1b-8f04-41aa-b86a-a68307de0190"
+          ]
+        },
+        {
+          "code": "",
+          "name": "emplacement_id",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Emplacement reserve",
+          "GUID": "b9646e38-319a-44fe-9428-fc1a0e13edcf",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "311323e4-0f4a-410f-8c91-85f5a9394102",
+          "foreignCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "foreignField": [
+            "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+            "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91"
+          ]
+        },
+        {
+          "code": "",
+          "name": "canal_code",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Canal de vente",
+          "GUID": "2c42c0b4-17c2-4e24-96e4-ef33556db19d",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "d7979095-0649-4809-92ad-3cb2437de935",
+          "foreignCollection": "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+          "foreignField": [
+            "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+            "c63fe6ec-5aaf-4b0c-ae96-71b89e080a54"
+          ]
+        },
+        {
+          "code": "",
+          "name": "date_arrivee",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "date",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "required": true,
+          "description": "Date d arrivee (premiere nuit)",
+          "GUID": "fb66c214-b19e-4b28-998f-1c7f09284a6d"
+        },
+        {
+          "code": "",
+          "name": "date_depart",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "date",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "required": true,
+          "description": "Date de depart (nuit non comptee)",
+          "GUID": "e3c17e35-cb53-44e7-95ab-ca89646b1535"
+        },
+        {
+          "code": "",
+          "name": "nb_adultes",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Nombre d adultes, soumis a la taxe de sejour",
+          "required": false,
+          "GUID": "dc18115e-6e27-4408-94d9-fe837ebb2ef9"
+        },
+        {
+          "code": "",
+          "name": "nb_mineurs",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Nombre de mineurs, exoneres",
+          "required": false,
+          "GUID": "395318ae-2d46-4a3d-b482-d57456a4b690"
+        },
+        {
+          "code": "",
+          "name": "montant_ttc",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "10",
+          "scale": "2",
+          "array_type": [],
+          "description": "Montant total du sejour en euros TTC",
+          "required": false,
+          "GUID": "2327afd9-33f7-45b0-a93e-07b25cc29731"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "aff11fb1-d0d4-4b6d-95b4-841e0a0ab826"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Sejours valides ; la regle depart apres arrivee refuse les autres. Grain : un sejour",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "reservation_ota",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "ota_ref",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Identifiant chez l OTA (different de sejour_id)",
+          "GUID": "031310e3-628f-42a7-a15f-881b243ed424",
+          "primaryKeyOptions": [
+            {
+              "GUID": "08acb8bc-8a02-401e-9360-1a5fd35ebe0a",
+              "constraintName": "pk_reservation_ota",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ]
+        },
+        {
+          "code": "",
+          "name": "canal_code",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "GUID": "e6439f8f-5a44-4e27-bb50-7dbb2a2e32f0",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "51494567-29ea-4922-80dd-07a71a5a394a",
+          "foreignCollection": "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+          "foreignField": [
+            "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+            "c63fe6ec-5aaf-4b0c-ae96-71b89e080a54"
+          ]
+        },
+        {
+          "code": "",
+          "name": "emplacement_id",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "GUID": "3784a22f-ef89-4297-a694-9db5419615be",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "76abae58-1b6e-4325-a1f7-20c60d8d8ef1",
+          "foreignCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "foreignField": [
+            "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+            "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91"
+          ]
+        },
+        {
+          "code": "",
+          "name": "date_arrivee",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "date",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "required": false,
+          "GUID": "b66cbfc4-15ce-4d2a-9d3f-f00b63e1a8bd"
+        },
+        {
+          "code": "",
+          "name": "date_depart",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "date",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "required": false,
+          "GUID": "c7dd0ac6-33c6-4da0-8c40-6523c4c322b6"
+        },
+        {
+          "code": "",
+          "name": "montant_ttc",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "10",
+          "scale": "2",
+          "array_type": [],
+          "required": false,
+          "GUID": "0f4d8c13-1704-4349-8407-c232a9f0db98"
+        },
+        {
+          "code": "",
+          "name": "sejour_id",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Sejour PMS rapproche (doublon), vide sinon",
+          "GUID": "358b68f1-ae05-4327-9047-bda90e05fbf6",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "35ad4a43-768f-47fe-91cd-914e1c7d1de2",
+          "foreignCollection": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+          "foreignField": [
+            "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+            "16813e14-997a-4971-a8df-3c530c6528e2"
+          ]
+        },
+        {
+          "code": "",
+          "name": "statut_rapprochement",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Resultat du rapprochement avec le PMS (doublon, sans equivalent)",
+          "GUID": "ce40db27-ebfb-4402-b5e6-581b3c7a8fc4"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "90925c20-a0e6-4be1-b79f-f30f6b25b067"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "616d66e3-42ed-45f5-b790-04ec398d8266",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Reservations OTA, rapprochees du sejour PMS quand il existe. Grain : une reservation OTA",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "releve_compteur",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "emplacement_id",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "GUID": "9f3155d9-1e6c-4a12-8133-67edf6fed1ad",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "dbecee89-8f3b-4e8b-b76d-ff3b0576785b",
+          "foreignCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "foreignField": [
+            "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+            "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91"
+          ]
+        },
+        {
+          "code": "",
+          "name": "horodatage",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "timestamp",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "timezone": "",
+          "timePrecision": "",
+          "array_type": [],
+          "required": true,
+          "description": "Date et heure du releve (toutes les 15 minutes)",
+          "GUID": "deaf9927-1343-4e8b-9bb3-4e508cba7547",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ],
+          "tPrecision": ""
+        },
+        {
+          "code": "",
+          "name": "kwh_cumul",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "double precision",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Index electrique cumule en kWh",
+          "required": false,
+          "GUID": "e6255c40-980e-48b2-a9cc-c7c71a254485"
+        },
+        {
+          "code": "",
+          "name": "litres_cumul",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "double precision",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Index d eau cumule en litres",
+          "required": false,
+          "GUID": "11c65c30-ef6f-4c52-b266-f5ba441cdfb8"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "7ffe4501-0940-4e9e-8245-0ff76d41fce8"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "050a052c-e634-4f11-87cc-979e221eee38",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Releves des compteurs, types. Grain : un emplacement x un quart d heure",
+      "temporary": false,
+      "unlogged": false,
+      "primaryKey": [
+        {
+          "deferrable": "",
+          "GUID": "8b851faf-f607-4c2d-8ca9-0942620d6728",
+          "constraintName": "pk_releve_compteur",
+          "compositePrimaryKey": [
+            {
+              "keyId": "9f3155d9-1e6c-4a12-8133-67edf6fed1ad"
+            },
+            {
+              "keyId": "deaf9927-1343-4e8b-9bb3-4e508cba7547"
+            }
+          ],
+          "indexInclude": [],
+          "indexTablespace": ""
+        }
+      ]
+    },
+    {
+      "collectionName": "nuitee",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "sejour_id",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Sejour dont vient la nuit",
+          "GUID": "280dea97-d183-465c-97cb-247720209809",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "6b3dfde4-5ada-4a95-bad6-622d0bfd2a91",
+          "foreignCollection": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+          "foreignField": [
+            "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+            "16813e14-997a-4971-a8df-3c530c6528e2"
+          ]
+        },
+        {
+          "code": "",
+          "name": "date_nuit",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "date",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "required": true,
+          "description": "Soir passe sur place ; de date_arrivee incluse a date_depart exclue",
+          "GUID": "d0273b81-2742-4ae2-af42-1a9e7c11dc6f",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ]
+        },
+        {
+          "code": "",
+          "name": "emplacement_id",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Emplacement occupe cette nuit",
+          "GUID": "92b4410c-f10a-4148-a0aa-9663831fb860",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "1d01a7c7-53aa-4843-b781-069f49e447a6",
+          "foreignCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "foreignField": [
+            "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+            "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91"
+          ]
+        },
+        {
+          "code": "",
+          "name": "camping_nom",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Camping de l emplacement, recopie pour agreger vite",
+          "GUID": "b03cc52b-2b7e-4f70-8178-2c0e4c80a92f",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "3ed35f03-d239-4520-8ee6-b397f565b1d5",
+          "foreignCollection": "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+          "foreignField": [
+            "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+            "b0ddcc87-9110-4ca8-aa23-5f84c8d05ccc"
+          ]
+        },
+        {
+          "code": "",
+          "name": "categorie_code",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Categorie de l emplacement valable cette nuit-la",
+          "GUID": "9b7ddcf3-fa7d-494f-b26e-9c5d2b3f831a",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "1a869fb2-5a39-48d5-90ea-f57ca8f9b090",
+          "foreignCollection": "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+          "foreignField": [
+            "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+            "9f0a0945-a783-4607-a8f7-8d3e1ed7a291"
+          ]
+        },
+        {
+          "code": "",
+          "name": "canal_code",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Canal de vente du sejour",
+          "GUID": "6aaab1c0-6aa8-4acc-b48b-fab5633bf47b",
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "13d0b7a6-0399-4f99-8553-67890238ff66",
+          "foreignCollection": "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+          "foreignField": [
+            "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+            "c63fe6ec-5aaf-4b0c-ae96-71b89e080a54"
+          ]
+        },
+        {
+          "code": "",
+          "name": "nb_adultes",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Adultes presents ; base de la taxe de sejour",
+          "required": false,
+          "GUID": "8acd426e-ded0-475e-8b6f-7a2927935634"
+        },
+        {
+          "code": "",
+          "name": "nb_mineurs",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Mineurs presents ; exoneres",
+          "required": false,
+          "GUID": "b8e4c9e6-d26f-4177-8a7f-c41c7d55714d"
+        },
+        {
+          "code": "",
+          "name": "montant_nuit",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "10",
+          "scale": "2",
+          "array_type": [],
+          "description": "montant_ttc du sejour / nombre de nuits, euros TTC",
+          "required": false,
+          "GUID": "b8ee95d6-c6cb-4814-b4d5-3905bffe7e91"
+        },
+        {
+          "code": "",
+          "name": "mois_nuit",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "length": 7,
+          "array_type": [],
+          "description": "Mois de la nuit AAAA-MM (une nuit du 31/08 compte en aout)",
+          "GUID": "187ce9ea-fd5c-4dd2-b862-79913d3a12af"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "bf991c10-4316-463b-b501-06add670e583"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "5280514f-351e-4eca-93a0-81853587d2c6",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Table centrale. Une ligne = un sejour x une nuit ; la nuit du depart n est pas comptee",
+      "temporary": false,
+      "unlogged": false,
+      "primaryKey": [
+        {
+          "deferrable": "",
+          "GUID": "41756db8-fe83-4e6d-bc1c-b38be93e00f8",
+          "constraintName": "pk_nuitee",
+          "compositePrimaryKey": [
+            {
+              "keyId": "280dea97-d183-465c-97cb-247720209809"
+            },
+            {
+              "keyId": "d0273b81-2742-4ae2-af42-1a9e7c11dc6f"
+            }
+          ],
+          "indexInclude": [],
+          "indexTablespace": ""
+        }
+      ]
+    },
+    {
+      "collectionName": "client_identite",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "client_ref",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Reference du client, lien avec silver.client",
+          "GUID": "5f0cd61f-c025-426b-8fc5-9ffc449b638a",
+          "primaryKeyOptions": [
+            {
+              "GUID": "82a2f28a-edd5-40ee-bef4-47d8517666fb",
+              "constraintName": "pk_client_identite",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "9da482c6-2267-4ac2-8ab3-c6e80829669a",
+          "foreignCollection": "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+          "foreignField": [
+            "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+            "df1a6d1b-8f04-41aa-b86a-a68307de0190"
+          ]
+        },
+        {
+          "code": "",
+          "name": "nom",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Nom",
+          "GUID": "ac91c9a4-ee01-4c48-bb19-246024bfed0e"
+        },
+        {
+          "code": "",
+          "name": "prenom",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Prenom",
+          "GUID": "0e112fa4-efe3-44dd-867d-3953e64b2923"
+        },
+        {
+          "code": "",
+          "name": "email",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] E-mail, masque sauf pour le service client",
+          "GUID": "430baabf-5d26-4480-8d56-96c2c673f92f"
+        },
+        {
+          "code": "",
+          "name": "telephone",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Telephone, masque sauf pour le service client",
+          "GUID": "de513db6-1753-4ec5-bd90-99c470ce79dd"
+        },
+        {
+          "code": "",
+          "name": "adresse",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Adresse postale (facturation)",
+          "GUID": "f4b0f527-011f-4d24-a624-13d157c760b2"
+        },
+        {
+          "code": "",
+          "name": "code_postal",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Code postal",
+          "GUID": "cf2b2967-21f5-4145-a281-3f8468680a6a"
+        },
+        {
+          "code": "",
+          "name": "ville",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Ville",
+          "GUID": "65d5f459-fc78-4e63-9559-b1962097e10b"
+        },
+        {
+          "code": "",
+          "name": "date_creation",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "date",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Date de creation de la fiche",
+          "required": false,
+          "GUID": "583115f7-e4eb-4fd0-862f-14ee3e73f938"
+        },
+        {
+          "code": "",
+          "name": "date_derniere_activite",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "date",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Dernier sejour ou contact ; point de depart de la conservation de 36 mois",
+          "required": false,
+          "GUID": "bb231a76-5633-47bf-9aa8-1911ddef19cf"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "99116500-f6f6-4deb-b2be-292c4336ae13"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "e7410e92-8094-446b-bf69-b13e4966541e",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Identite du client, a part et protegee ; effacee 36 mois apres la derniere activite. Grain : un client",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "finalite_traitement",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "finalite_code",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "CONTRAT, COMPTA, POLICE, STATS, MARKETING",
+          "GUID": "6b35f0be-601f-4e16-90fd-769449846795",
+          "primaryKeyOptions": [
+            {
+              "GUID": "dd288197-f503-4242-9cac-789eb4fec59e",
+              "constraintName": "pk_finalite_traitement",
+              "indexInclude": [],
+              "indexTablespace": ""
+            }
+          ],
+          "childRelationships": [
+            "9d94adbd-58a1-490e-a232-0368379e40fd"
+          ]
+        },
+        {
+          "code": "",
+          "name": "libelle",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Pour quoi faire",
+          "GUID": "e636e5eb-77ee-4dca-a6b6-139e34985fce"
+        },
+        {
+          "code": "",
+          "name": "base_legale",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Base legale RGPD article 6 (a verifier, S4.4)",
+          "GUID": "a606dac5-e94c-4a4c-8c16-311e25234ee6"
+        },
+        {
+          "code": "",
+          "name": "duree_conservation_mois",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Duree de conservation en mois",
+          "required": false,
+          "GUID": "33ec5a1d-c141-4df6-a261-8702f8f84868"
+        },
+        {
+          "code": "",
+          "name": "point_de_depart",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Evenement qui declenche la duree",
+          "GUID": "24ff524a-7466-476e-b0bc-5c8c3464a3a0"
+        },
+        {
+          "code": "",
+          "name": "donnees_et_source",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Donnees concernees et leur source",
+          "GUID": "ff5110c1-3166-43ed-a1d5-7e81da0d65f8"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "a8ca1225-9904-4aff-a762-4a4d1435ada3"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "e9219514-8ef9-4f46-98be-df78160faef3",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Referentiel des finalites, base legale et duree de conservation. Grain : une finalite",
+      "temporary": false,
+      "unlogged": false
+    },
+    {
+      "collectionName": "consentement",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "client_ref",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "[DCP] Client qui a fait le choix",
+          "GUID": "f374749f-f006-47d6-9ebe-c32477edc801",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "6242d595-83e2-4881-b808-06ea3cdfab14",
+          "foreignCollection": "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+          "foreignField": [
+            "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+            "df1a6d1b-8f04-41aa-b86a-a68307de0190"
+          ]
+        },
+        {
+          "code": "",
+          "name": "finalite_code",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Finalite concernee (STATS ou MARKETING)",
+          "GUID": "3e5b5f49-8546-4e5f-bd23-0a5c72630ce5",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "9d94adbd-58a1-490e-a232-0368379e40fd",
+          "foreignCollection": "e9219514-8ef9-4f46-98be-df78160faef3",
+          "foreignField": [
+            "e9219514-8ef9-4f46-98be-df78160faef3",
+            "6b35f0be-601f-4e16-90fd-769449846795"
+          ]
+        },
+        {
+          "code": "",
+          "name": "horodatage",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "timestamp",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "timezone": "",
+          "timePrecision": "",
+          "array_type": [],
+          "required": true,
+          "description": "Date et heure du choix ; preuve. Un choix sans date est rejete",
+          "GUID": "07591c08-bf9a-4e9f-a414-d633bb8ce0a7",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ],
+          "tPrecision": ""
+        },
+        {
+          "code": "",
+          "name": "statut",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "ACCORDE, REFUSE ou RETIRE ; le dernier choix compte",
+          "GUID": "c4f6b53e-ba3f-483c-a63e-e48b492876d6"
+        },
+        {
+          "code": "",
+          "name": "canal",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "WEB ou ACCUEIL",
+          "GUID": "72d2fac0-5ce1-43ba-82c2-c1f6434f9436"
+        },
+        {
+          "code": "",
+          "name": "version_texte",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "mode": "varchar",
+          "required": false,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Version du texte d information montre au client ; preuve",
+          "GUID": "456e5ff1-3a2a-42fe-8be8-b3c76188847d"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "d6c62ec1-0b75-45e0-97cb-159a8af2a5fb"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "99d03138-9dde-447a-b249-225ea573ff2f",
+      "bucketId": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "description": "Journal des consentements, un evenement par ligne. Grain : un choix d un client pour une finalite a un instant",
+      "temporary": false,
+      "unlogged": false,
+      "primaryKey": [
+        {
+          "deferrable": "",
+          "GUID": "3fd3ced8-8427-4027-be29-97797b0d9f90",
+          "constraintName": "pk_consentement",
+          "compositePrimaryKey": [
+            {
+              "keyId": "f374749f-f006-47d6-9ebe-c32477edc801"
+            },
+            {
+              "keyId": "3e5b5f49-8546-4e5f-bd23-0a5c72630ce5"
+            },
+            {
+              "keyId": "07591c08-bf9a-4e9f-a414-d633bb8ce0a7"
+            }
+          ],
+          "indexInclude": [],
+          "indexTablespace": ""
+        }
+      ]
+    },
+    {
+      "collectionName": "dp_occupation_yield",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "date_nuit",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "date",
+          "alternateKey": false,
+          "childType": "datetime",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "required": true,
+          "description": "Nuit concernee",
+          "GUID": "58d85bdc-5696-4cad-989c-671138a3d733",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ]
+        },
+        {
+          "code": "",
+          "name": "camping_nom",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Camping",
+          "GUID": "14d70cac-9b7a-4faa-9782-39c6683fca67",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "684d5429-8b8b-4aa5-96f2-657320617cf2",
+          "foreignCollection": "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+          "foreignField": [
+            "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+            "b0ddcc87-9110-4ca8-aa23-5f84c8d05ccc"
+          ]
+        },
+        {
+          "code": "",
+          "name": "categorie_code",
+          "isActivated": true,
+          "primaryKey": true,
+          "unique": false,
+          "mode": "varchar",
+          "required": true,
+          "alternateKey": false,
+          "childType": "char",
+          "type": "string",
+          "compositePrimaryKey": true,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "NU nu, MH mobil-home, PR premium",
+          "GUID": "6e01c489-2564-4367-9acd-e0ff2c80921f",
+          "compositeKey": [
+            "compositePrimaryKey"
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "e025aa88-232e-4e09-8a62-4a874ee5ad8e",
+          "foreignCollection": "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+          "foreignField": [
+            "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+            "9f0a0945-a783-4607-a8f7-8d3e1ed7a291"
+          ]
+        },
+        {
+          "code": "",
+          "name": "nb_emplacements_disponibles",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Emplacements de la categorie ouverts a la vente cette nuit",
+          "required": false,
+          "GUID": "87e3c6dc-f6ae-4bbf-8429-91af22837cc6"
+        },
+        {
+          "code": "",
+          "name": "nb_emplacements_occupes",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Emplacements ayant une nuitee cette nuit",
+          "required": false,
+          "GUID": "e70dc59e-ae60-42c0-be80-c25bb8608782"
+        },
+        {
+          "code": "",
+          "name": "taux_occupation",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "5",
+          "scale": "4",
+          "array_type": [],
+          "description": "occupes / disponibles, entre 0 et 1. Sur plusieurs categories : somme des occupes / somme des disponibles, jamais la moyenne des taux",
+          "required": false,
+          "GUID": "7f5f1d60-7eee-49d8-a029-5da2e7b12b0b"
+        },
+        {
+          "code": "",
+          "name": "chiffre_affaires",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "12",
+          "scale": "2",
+          "array_type": [],
+          "description": "Somme des montant_nuit, euros TTC",
+          "required": false,
+          "GUID": "9046b672-3b07-4326-a661-1d1441e90e53"
+        },
+        {
+          "code": "",
+          "name": "prix_moyen_nuit",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "10",
+          "scale": "2",
+          "array_type": [],
+          "description": "chiffre_affaires / occupes",
+          "required": false,
+          "GUID": "2b0d9c8d-ff09-478e-a260-62d341b2b90f"
+        },
+        {
+          "code": "",
+          "name": "revpar",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "10",
+          "scale": "2",
+          "array_type": [],
+          "description": "chiffre_affaires / disponibles",
+          "required": false,
+          "GUID": "9d7dafc2-eec3-4e39-b61f-b50863d6bb78"
+        },
+        {
+          "code": "",
+          "name": "nb_nuitees_direct",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Nuitees vendues en direct (canal.est_ota = faux)",
+          "required": false,
+          "GUID": "7f469160-29ea-4f78-884f-debc73503276"
+        },
+        {
+          "code": "",
+          "name": "nb_nuitees_ota",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "integer",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "array_type": [],
+          "description": "Nuitees vendues par une OTA (canal.est_ota = vrai)",
+          "required": false,
+          "GUID": "1e8f6d2d-d75a-4861-a5c8-16de54839f57"
+        },
+        {
+          "code": "",
+          "name": "part_direct",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "5",
+          "scale": "4",
+          "array_type": [],
+          "description": "nb_nuitees_direct / occupes, entre 0 et 1",
+          "required": false,
+          "GUID": "d4754637-6859-4177-87ec-b8079e55f196"
+        },
+        {
+          "code": "",
+          "name": "taux_occupation_n1",
+          "isActivated": true,
+          "primaryKey": false,
+          "unique": false,
+          "exclusiveMinimum": false,
+          "exclusiveMaximum": false,
+          "mode": "numeric",
+          "alternateKey": false,
+          "childType": "numeric",
+          "type": "numeric",
+          "compositePrimaryKey": false,
+          "compositeUniqueKey": false,
+          "precision": "5",
+          "scale": "4",
+          "array_type": [],
+          "description": "Taux de la meme date l annee precedente ; vide si inconnu",
+          "required": false,
+          "GUID": "45fd3fa7-281c-4bc6-9043-c3fd6b54e805"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "6dad42fc-625b-40b1-a985-1712f0f4ea78"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "memory_optimized": false,
+      "ifNotExist": true,
+      "on_commit": "PRESERVE ROWS",
+      "GUID": "10dddc13-dad7-4071-8203-3965211616e9",
+      "bucketId": "9562764e-110f-48cb-90e1-c30b981c4964",
+      "description": "Data product de la direction commerciale. Grain : une nuit x un camping x une categorie. Mis a jour chaque nuit, pret a 6 h. Aucune donnee personnelle",
+      "temporary": false,
+      "unlogged": false,
+      "primaryKey": [
+        {
+          "deferrable": "",
+          "GUID": "e1df5e01-3e44-40ac-8649-5cf3598da467",
+          "constraintName": "pk_dp_occupation_yield",
+          "compositePrimaryKey": [
+            {
+              "keyId": "58d85bdc-5696-4cad-989c-671138a3d733"
+            },
+            {
+              "keyId": "14d70cac-9b7a-4faa-9782-39c6683fca67"
+            },
+            {
+              "keyId": "6e01c489-2564-4367-9acd-e0ff2c80921f"
+            }
+          ],
+          "indexInclude": [],
+          "indexTablespace": ""
+        }
+      ]
+    }
+  ],
+  "buckets": [
+    {
+      "name": "silver",
+      "type": "bucket",
+      "collectionIds": [
+        "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+        "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+        "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+        "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+        "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+        "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+        "616d66e3-42ed-45f5-b790-04ec398d8266",
+        "050a052c-e634-4f11-87cc-979e221eee38",
+        "5280514f-351e-4eca-93a0-81853587d2c6",
+        "e7410e92-8094-446b-bf69-b13e4966541e",
+        "e9219514-8ef9-4f46-98be-df78160faef3",
+        "99d03138-9dde-447a-b249-225ea573ff2f"
+      ],
+      "backgroundColor": {
+        "r": 129,
+        "g": 212,
+        "b": 250,
+        "a": 1
+      },
+      "show": true,
+      "isActivated": true,
+      "ifNotExist": true,
+      "GUID": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee",
+      "sequences": [],
+      "UDFs": [],
+      "Procedures": []
+    },
+    {
+      "name": "gold",
+      "type": "bucket",
+      "collectionIds": [
+        "10dddc13-dad7-4071-8203-3965211616e9"
+      ],
+      "backgroundColor": {
+        "r": 165,
+        "g": 214,
+        "b": 167,
+        "a": 1
+      },
+      "show": true,
+      "isActivated": true,
+      "ifNotExist": true,
+      "GUID": "9562764e-110f-48cb-90e1-c30b981c4964",
+      "sequences": [],
+      "UDFs": [],
+      "Procedures": []
+    }
+  ],
+  "views": [],
+  "relationships": [
+    {
+      "name": "fk_emplacement_camping",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+          "b0ddcc87-9110-4ca8-aa23-5f84c8d05ccc"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "267ab42f-69fb-4655-a35c-217d571215ba"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "372772ce-9cda-4b30-86b2-5efea7f5d2af",
+      "parentCollection": "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+      "childCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+      "hackoladeStyles": {
+        "GUID": "a7acb5c1-b0ef-442a-a212-f688126d18bf",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1842,
+            "y": 1305
+          },
+          {
+            "x": 1842,
+            "y": 1334.5
+          },
+          {
+            "x": 1876.5,
+            "y": 1334.5
+          },
+          {
+            "x": 1876.5,
+            "y": 1364
+          }
+        ],
+        "sides": [
+          "bottom",
+          "top"
+        ]
+      }
+    },
+    {
+      "name": "fk_emplacement_categorie",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+          "9f0a0945-a783-4607-a8f7-8d3e1ed7a291"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "11023e21-29ee-4bc5-9994-0569d0353c51"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "ecaa5bbe-7924-4dc9-b0a5-d977357bcdea",
+      "parentCollection": "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+      "childCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+      "hackoladeStyles": {
+        "GUID": "0ba785b7-79cf-4843-9d58-aa13dc10555b",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1886.5,
+            "y": 1305
+          },
+          {
+            "x": 1886.5,
+            "y": 1484.5
+          },
+          {
+            "x": 2093,
+            "y": 1484.5
+          },
+          {
+            "x": 2093,
+            "y": 1664
+          }
+        ],
+        "sides": [
+          "bottom",
+          "top"
+        ]
+      }
+    },
+    {
+      "name": "fk_sejour_client",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+          "df1a6d1b-8f04-41aa-b86a-a68307de0190"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+          "bd25ef7d-58c5-4d05-9b23-127e032b7c4e"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "a35a5219-7cca-4c3c-8632-3c5ea62c5f8c",
+      "parentCollection": "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+      "childCollection": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+      "hackoladeStyles": {
+        "GUID": "21f72754-3cd4-4e9d-8736-8b905a07a411",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1664,
+            "y": 1880.3333333333333
+          },
+          {
+            "x": 1573.5,
+            "y": 1880.3333333333333
+          },
+          {
+            "x": 1573.5,
+            "y": 1624.6666666666667
+          },
+          {
+            "x": 1483,
+            "y": 1624.6666666666667
+          }
+        ],
+        "sides": [
+          "left",
+          "right"
+        ]
+      }
+    },
+    {
+      "name": "fk_sejour_emplacement",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+          "b9646e38-319a-44fe-9428-fc1a0e13edcf"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "311323e4-0f4a-410f-8c91-85f5a9394102",
+      "parentCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+      "childCollection": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+      "hackoladeStyles": {
+        "GUID": "1c1218e2-7ffa-4b22-ac70-9538c2adfc4e",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1816.5,
+            "y": 1814
+          },
+          {
+            "x": 1816.5,
+            "y": 1559.5
+          },
+          {
+            "x": 1797.5,
+            "y": 1559.5
+          },
+          {
+            "x": 1797.5,
+            "y": 1305
+          }
+        ],
+        "sides": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "name": "fk_sejour_canal",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+          "c63fe6ec-5aaf-4b0c-ae96-71b89e080a54"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+          "2c42c0b4-17c2-4e24-96e4-ef33556db19d"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "d7979095-0649-4809-92ad-3cb2437de935",
+      "parentCollection": "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+      "childCollection": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+      "hackoladeStyles": {
+        "GUID": "d8d4ad89-e0d5-4ae1-95d3-2e8882884455",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1892.75,
+            "y": 1814
+          },
+          {
+            "x": 1892.75,
+            "y": 1484.5
+          },
+          {
+            "x": 1871.3333333333333,
+            "y": 1484.5
+          },
+          {
+            "x": 1871.3333333333333,
+            "y": 1155
+          }
+        ],
+        "sides": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "name": "fk_ota_canal",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+          "c63fe6ec-5aaf-4b0c-ae96-71b89e080a54"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "616d66e3-42ed-45f5-b790-04ec398d8266",
+          "e6439f8f-5a44-4e27-bb50-7dbb2a2e32f0"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "51494567-29ea-4922-80dd-07a71a5a394a",
+      "parentCollection": "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+      "childCollection": "616d66e3-42ed-45f5-b790-04ec398d8266",
+      "hackoladeStyles": {
+        "GUID": "a14475df-67b7-480f-a3d3-dad7322ee24b",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1788.6666666666667,
+            "y": 1564
+          },
+          {
+            "x": 1788.6666666666667,
+            "y": 1359.5
+          },
+          {
+            "x": 1792.6666666666667,
+            "y": 1359.5
+          },
+          {
+            "x": 1792.6666666666667,
+            "y": 1155
+          }
+        ],
+        "sides": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "name": "fk_ota_emplacement",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "616d66e3-42ed-45f5-b790-04ec398d8266",
+          "3784a22f-ef89-4297-a694-9db5419615be"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "76abae58-1b6e-4325-a1f7-20c60d8d8ef1",
+      "parentCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+      "childCollection": "616d66e3-42ed-45f5-b790-04ec398d8266",
+      "hackoladeStyles": {
+        "GUID": "0a2254d1-168c-4581-a4f6-f0c9b946c240",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1676.3333333333333,
+            "y": 1564
+          },
+          {
+            "x": 1676.3333333333333,
+            "y": 1434.5
+          },
+          {
+            "x": 1753,
+            "y": 1434.5
+          },
+          {
+            "x": 1753,
+            "y": 1305
+          }
+        ],
+        "sides": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "name": "fk_ota_sejour",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+          "16813e14-997a-4971-a8df-3c530c6528e2"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "616d66e3-42ed-45f5-b790-04ec398d8266",
+          "358b68f1-ae05-4327-9047-bda90e05fbf6"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "35ad4a43-768f-47fe-91cd-914e1c7d1de2",
+      "parentCollection": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+      "childCollection": "616d66e3-42ed-45f5-b790-04ec398d8266",
+      "hackoladeStyles": {
+        "GUID": "b2b49ef9-26cf-48cd-98a1-772b2228bf43",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1732.5,
+            "y": 1745
+          },
+          {
+            "x": 1732.5,
+            "y": 1779.5
+          },
+          {
+            "x": 1740.25,
+            "y": 1779.5
+          },
+          {
+            "x": 1740.25,
+            "y": 1814
+          }
+        ],
+        "sides": [
+          "bottom",
+          "top"
+        ]
+      }
+    },
+    {
+      "name": "fk_releve_emplacement",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "050a052c-e634-4f11-87cc-979e221eee38",
+          "9f3155d9-1e6c-4a12-8133-67edf6fed1ad"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "dbecee89-8f3b-4e8b-b76d-ff3b0576785b",
+      "parentCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+      "childCollection": "050a052c-e634-4f11-87cc-979e221eee38",
+      "hackoladeStyles": {
+        "GUID": "48272f45-0ef7-4d0e-945d-21b8205c420d",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1472.5,
+            "y": 1364
+          },
+          {
+            "x": 1472.5,
+            "y": 1334.5
+          },
+          {
+            "x": 1708.5,
+            "y": 1334.5
+          },
+          {
+            "x": 1708.5,
+            "y": 1305
+          }
+        ],
+        "sides": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "name": "fk_nuitee_sejour",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+          "16813e14-997a-4971-a8df-3c530c6528e2"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "5280514f-351e-4eca-93a0-81853587d2c6",
+          "280dea97-d183-465c-97cb-247720209809"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "6b3dfde4-5ada-4a95-bad6-622d0bfd2a91",
+      "parentCollection": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+      "childCollection": "5280514f-351e-4eca-93a0-81853587d2c6",
+      "hackoladeStyles": {
+        "GUID": "db1df2f2-2edf-4f0e-822f-3733677b4b0c",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1368,
+            "y": 2194.8333333333335
+          },
+          {
+            "x": 1516,
+            "y": 2194.8333333333335
+          },
+          {
+            "x": 1516,
+            "y": 1946.6666666666667
+          },
+          {
+            "x": 1664,
+            "y": 1946.6666666666667
+          }
+        ],
+        "sides": [
+          "right",
+          "left"
+        ]
+      }
+    },
+    {
+      "name": "fk_nuitee_emplacement",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+          "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "5280514f-351e-4eca-93a0-81853587d2c6",
+          "92b4410c-f10a-4148-a0aa-9663831fb860"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "1d01a7c7-53aa-4843-b781-069f49e447a6",
+      "parentCollection": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+      "childCollection": "5280514f-351e-4eca-93a0-81853587d2c6",
+      "hackoladeStyles": {
+        "GUID": "7d2c6cd7-f24d-407c-94cb-a1d5be25dfe7",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1368,
+            "y": 2086.3333333333335
+          },
+          {
+            "x": 1516,
+            "y": 2086.3333333333335
+          },
+          {
+            "x": 1516,
+            "y": 1259.5
+          },
+          {
+            "x": 1664,
+            "y": 1259.5
+          }
+        ],
+        "sides": [
+          "right",
+          "left"
+        ]
+      }
+    },
+    {
+      "name": "fk_nuitee_camping",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+          "b0ddcc87-9110-4ca8-aa23-5f84c8d05ccc"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "5280514f-351e-4eca-93a0-81853587d2c6",
+          "b03cc52b-2b7e-4f70-8178-2c0e4c80a92f"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "3ed35f03-d239-4520-8ee6-b397f565b1d5",
+      "parentCollection": "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+      "childCollection": "5280514f-351e-4eca-93a0-81853587d2c6",
+      "hackoladeStyles": {
+        "GUID": "37e0fcb0-7c9c-4464-82b3-40ad7b84430c",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1368,
+            "y": 2122.5
+          },
+          {
+            "x": 1541,
+            "y": 2122.5
+          },
+          {
+            "x": 1541,
+            "y": 1418.5
+          },
+          {
+            "x": 1714,
+            "y": 1418.5
+          }
+        ],
+        "sides": [
+          "right",
+          "left"
+        ]
+      }
+    },
+    {
+      "name": "fk_nuitee_categorie",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+          "9f0a0945-a783-4607-a8f7-8d3e1ed7a291"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "5280514f-351e-4eca-93a0-81853587d2c6",
+          "9b7ddcf3-fa7d-494f-b26e-9c5d2b3f831a"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "1a869fb2-5a39-48d5-90ea-f57ca8f9b090",
+      "parentCollection": "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+      "childCollection": "5280514f-351e-4eca-93a0-81853587d2c6",
+      "hackoladeStyles": {
+        "GUID": "00841f7a-1662-4f71-8f0a-bbc54429a25c",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1368,
+            "y": 2158.6666666666665
+          },
+          {
+            "x": 1666,
+            "y": 2158.6666666666665
+          },
+          {
+            "x": 1666,
+            "y": 1700.5
+          },
+          {
+            "x": 1964,
+            "y": 1700.5
+          }
+        ],
+        "sides": [
+          "right",
+          "left"
+        ]
+      }
+    },
+    {
+      "name": "fk_nuitee_canal",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+          "c63fe6ec-5aaf-4b0c-ae96-71b89e080a54"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "5280514f-351e-4eca-93a0-81853587d2c6",
+          "6aaab1c0-6aa8-4acc-b48b-fab5633bf47b"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "13d0b7a6-0399-4f99-8553-67890238ff66",
+      "parentCollection": "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+      "childCollection": "5280514f-351e-4eca-93a0-81853587d2c6",
+      "hackoladeStyles": {
+        "GUID": "b6cb3211-b290-4c5c-8ee3-9bec77c8f526",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1368,
+            "y": 2050.1666666666665
+          },
+          {
+            "x": 1541,
+            "y": 2050.1666666666665
+          },
+          {
+            "x": 1541,
+            "y": 1109.5
+          },
+          {
+            "x": 1714,
+            "y": 1109.5
+          }
+        ],
+        "sides": [
+          "right",
+          "left"
+        ]
+      }
+    },
+    {
+      "name": "fk_dp_occ_camping",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+          "b0ddcc87-9110-4ca8-aa23-5f84c8d05ccc"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "10dddc13-dad7-4071-8203-3965211616e9",
+          "14d70cac-9b7a-4faa-9782-39c6683fca67"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "684d5429-8b8b-4aa5-96f2-657320617cf2",
+      "parentCollection": "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+      "childCollection": "10dddc13-dad7-4071-8203-3965211616e9",
+      "hackoladeStyles": {
+        "GUID": "2b17bf9a-97a1-4e19-9c64-7ed7d9971f43",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 2438,
+            "y": 1154.3333333333333
+          },
+          {
+            "x": 2238.5,
+            "y": 1154.3333333333333
+          },
+          {
+            "x": 2238.5,
+            "y": 1418.5
+          },
+          {
+            "x": 2039,
+            "y": 1418.5
+          }
+        ],
+        "sides": [
+          "left",
+          "right"
+        ]
+      }
+    },
+    {
+      "name": "fk_dp_occ_categorie",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+          "9f0a0945-a783-4607-a8f7-8d3e1ed7a291"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "10dddc13-dad7-4071-8203-3965211616e9",
+          "6e01c489-2564-4367-9acd-e0ff2c80921f"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "e025aa88-232e-4e09-8a62-4a874ee5ad8e",
+      "parentCollection": "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+      "childCollection": "10dddc13-dad7-4071-8203-3965211616e9",
+      "hackoladeStyles": {
+        "GUID": "eaaa90ab-e362-41a2-8835-f1ff55565729",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 2438,
+            "y": 1244.6666666666667
+          },
+          {
+            "x": 2330,
+            "y": 1244.6666666666667
+          },
+          {
+            "x": 2330,
+            "y": 1700.5
+          },
+          {
+            "x": 2222,
+            "y": 1700.5
+          }
+        ],
+        "sides": [
+          "left",
+          "right"
+        ]
+      }
+    },
+    {
+      "name": "fk_identite_client",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+          "df1a6d1b-8f04-41aa-b86a-a68307de0190"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "e7410e92-8094-446b-bf69-b13e4966541e",
+          "5f0cd61f-c025-426b-8fc5-9ffc449b638a"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "9da482c6-2267-4ac2-8ab3-c6e80829669a",
+      "parentCollection": "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+      "childCollection": "e7410e92-8094-446b-bf69-b13e4966541e",
+      "hackoladeStyles": {
+        "GUID": "6d4170b1-da70-49a4-953e-49286c9f7220",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 2014,
+            "y": 1172.5
+          },
+          {
+            "x": 1748.5,
+            "y": 1172.5
+          },
+          {
+            "x": 1748.5,
+            "y": 1594.3333333333333
+          },
+          {
+            "x": 1483,
+            "y": 1594.3333333333333
+          }
+        ],
+        "sides": [
+          "left",
+          "right"
+        ]
+      }
+    },
+    {
+      "name": "fk_consentement_client",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+          "df1a6d1b-8f04-41aa-b86a-a68307de0190"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "99d03138-9dde-447a-b249-225ea573ff2f",
+          "f374749f-f006-47d6-9ebe-c32477edc801"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "6242d595-83e2-4881-b808-06ea3cdfab14",
+      "parentCollection": "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+      "childCollection": "99d03138-9dde-447a-b249-225ea573ff2f",
+      "hackoladeStyles": {
+        "GUID": "954a034b-8751-47b5-a46b-10ab01b39d57",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1402.6666666666667,
+            "y": 1309
+          },
+          {
+            "x": 1402.6666666666667,
+            "y": 1436.5
+          },
+          {
+            "x": 1348.5,
+            "y": 1436.5
+          },
+          {
+            "x": 1348.5,
+            "y": 1564
+          }
+        ],
+        "sides": [
+          "bottom",
+          "top"
+        ]
+      }
+    },
+    {
+      "name": "fk_consentement_finalite",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "e9219514-8ef9-4f46-98be-df78160faef3",
+          "6b35f0be-601f-4e16-90fd-769449846795"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "99d03138-9dde-447a-b249-225ea573ff2f",
+          "3e5b5f49-8546-4e5f-bd23-0a5c72630ce5"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "0..n",
+      "GUID": "9d94adbd-58a1-490e-a232-0368379e40fd",
+      "parentCollection": "e9219514-8ef9-4f46-98be-df78160faef3",
+      "childCollection": "99d03138-9dde-447a-b249-225ea573ff2f",
+      "hackoladeStyles": {
+        "GUID": "4d855a9e-2c71-437a-92b8-05805bde13e5",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1491.3333333333333,
+            "y": 1309
+          },
+          {
+            "x": 1491.3333333333333,
+            "y": 1561.5
+          },
+          {
+            "x": 1422.5,
+            "y": 1561.5
+          },
+          {
+            "x": 1422.5,
+            "y": 1814
+          }
+        ],
+        "sides": [
+          "bottom",
+          "top"
+        ]
+      }
+    }
+  ],
+  "users": [],
+  "diagramViews": [],
+  "idToNameHashTable": {
+    "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee": "silver",
+    "9562764e-110f-48cb-90e1-c30b981c4964": "gold",
+    "df1a6d1b-8f04-41aa-b86a-a68307de0190": "client_ref",
+    "af26e98e-04a6-4d3a-96ac-2dc89ac32309": "annee_naissance",
+    "9df2dd78-d0cf-49b5-89af-2c23be5a6eb7": "pays_residence",
+    "6ef4a893-9c2c-41ad-a15e-db5490748d20": "client",
+    "c63fe6ec-5aaf-4b0c-ae96-71b89e080a54": "canal_code",
+    "221fc9eb-4d53-43de-a038-ef267902735e": "libelle",
+    "3d897420-cd9d-4010-93c8-8440c4977b5c": "est_ota",
+    "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2": "canal",
+    "b0ddcc87-9110-4ca8-aa23-5f84c8d05ccc": "camping_nom",
+    "30342ac6-d66f-4bb1-b7df-f1cdc4db187d": "commune",
+    "75eb6fb4-8bba-4548-868e-60d83972d469": "classement_etoiles",
+    "80dc933d-3ba2-4e07-8fe1-e83f75ba850e": "tarif_taxe_adulte_nuit",
+    "996cf4de-9115-4033-9d8f-cfb88de79ac6": "camping",
+    "9f0a0945-a783-4607-a8f7-8d3e1ed7a291": "categorie_code",
+    "46ec9b92-fe91-4796-a79c-46ffc1d707ec": "libelle",
+    "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d": "categorie",
+    "bcba1f04-5ea6-4ceb-8ae2-9a4597532c91": "emplacement_id",
+    "267ab42f-69fb-4655-a35c-217d571215ba": "camping_nom",
+    "11023e21-29ee-4bc5-9994-0569d0353c51": "categorie_code",
+    "40dfba20-4dad-4462-bd7f-6e299c6ca282": "emplacement",
+    "16813e14-997a-4971-a8df-3c530c6528e2": "sejour_id",
+    "bd25ef7d-58c5-4d05-9b23-127e032b7c4e": "client_ref",
+    "b9646e38-319a-44fe-9428-fc1a0e13edcf": "emplacement_id",
+    "2c42c0b4-17c2-4e24-96e4-ef33556db19d": "canal_code",
+    "fb66c214-b19e-4b28-998f-1c7f09284a6d": "date_arrivee",
+    "e3c17e35-cb53-44e7-95ab-ca89646b1535": "date_depart",
+    "dc18115e-6e27-4408-94d9-fe837ebb2ef9": "nb_adultes",
+    "395318ae-2d46-4a3d-b482-d57456a4b690": "nb_mineurs",
+    "2327afd9-33f7-45b0-a93e-07b25cc29731": "montant_ttc",
+    "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7": "sejour",
+    "031310e3-628f-42a7-a15f-881b243ed424": "ota_ref",
+    "e6439f8f-5a44-4e27-bb50-7dbb2a2e32f0": "canal_code",
+    "3784a22f-ef89-4297-a694-9db5419615be": "emplacement_id",
+    "b66cbfc4-15ce-4d2a-9d3f-f00b63e1a8bd": "date_arrivee",
+    "c7dd0ac6-33c6-4da0-8c40-6523c4c322b6": "date_depart",
+    "0f4d8c13-1704-4349-8407-c232a9f0db98": "montant_ttc",
+    "358b68f1-ae05-4327-9047-bda90e05fbf6": "sejour_id",
+    "ce40db27-ebfb-4402-b5e6-581b3c7a8fc4": "statut_rapprochement",
+    "616d66e3-42ed-45f5-b790-04ec398d8266": "reservation_ota",
+    "9f3155d9-1e6c-4a12-8133-67edf6fed1ad": "emplacement_id",
+    "deaf9927-1343-4e8b-9bb3-4e508cba7547": "horodatage",
+    "e6255c40-980e-48b2-a9cc-c7c71a254485": "kwh_cumul",
+    "11c65c30-ef6f-4c52-b266-f5ba441cdfb8": "litres_cumul",
+    "050a052c-e634-4f11-87cc-979e221eee38": "releve_compteur",
+    "280dea97-d183-465c-97cb-247720209809": "sejour_id",
+    "d0273b81-2742-4ae2-af42-1a9e7c11dc6f": "date_nuit",
+    "92b4410c-f10a-4148-a0aa-9663831fb860": "emplacement_id",
+    "b03cc52b-2b7e-4f70-8178-2c0e4c80a92f": "camping_nom",
+    "9b7ddcf3-fa7d-494f-b26e-9c5d2b3f831a": "categorie_code",
+    "6aaab1c0-6aa8-4acc-b48b-fab5633bf47b": "canal_code",
+    "8acd426e-ded0-475e-8b6f-7a2927935634": "nb_adultes",
+    "b8e4c9e6-d26f-4177-8a7f-c41c7d55714d": "nb_mineurs",
+    "b8ee95d6-c6cb-4814-b4d5-3905bffe7e91": "montant_nuit",
+    "187ce9ea-fd5c-4dd2-b862-79913d3a12af": "mois_nuit",
+    "5280514f-351e-4eca-93a0-81853587d2c6": "nuitee",
+    "5f0cd61f-c025-426b-8fc5-9ffc449b638a": "client_ref",
+    "ac91c9a4-ee01-4c48-bb19-246024bfed0e": "nom",
+    "0e112fa4-efe3-44dd-867d-3953e64b2923": "prenom",
+    "430baabf-5d26-4480-8d56-96c2c673f92f": "email",
+    "de513db6-1753-4ec5-bd90-99c470ce79dd": "telephone",
+    "f4b0f527-011f-4d24-a624-13d157c760b2": "adresse",
+    "cf2b2967-21f5-4145-a281-3f8468680a6a": "code_postal",
+    "65d5f459-fc78-4e63-9559-b1962097e10b": "ville",
+    "583115f7-e4eb-4fd0-862f-14ee3e73f938": "date_creation",
+    "bb231a76-5633-47bf-9aa8-1911ddef19cf": "date_derniere_activite",
+    "e7410e92-8094-446b-bf69-b13e4966541e": "client_identite",
+    "6b35f0be-601f-4e16-90fd-769449846795": "finalite_code",
+    "e636e5eb-77ee-4dca-a6b6-139e34985fce": "libelle",
+    "a606dac5-e94c-4a4c-8c16-311e25234ee6": "base_legale",
+    "33ec5a1d-c141-4df6-a261-8702f8f84868": "duree_conservation_mois",
+    "24ff524a-7466-476e-b0bc-5c8c3464a3a0": "point_de_depart",
+    "ff5110c1-3166-43ed-a1d5-7e81da0d65f8": "donnees_et_source",
+    "e9219514-8ef9-4f46-98be-df78160faef3": "finalite_traitement",
+    "f374749f-f006-47d6-9ebe-c32477edc801": "client_ref",
+    "3e5b5f49-8546-4e5f-bd23-0a5c72630ce5": "finalite_code",
+    "07591c08-bf9a-4e9f-a414-d633bb8ce0a7": "horodatage",
+    "c4f6b53e-ba3f-483c-a63e-e48b492876d6": "statut",
+    "72d2fac0-5ce1-43ba-82c2-c1f6434f9436": "canal",
+    "456e5ff1-3a2a-42fe-8be8-b3c76188847d": "version_texte",
+    "99d03138-9dde-447a-b249-225ea573ff2f": "consentement",
+    "372772ce-9cda-4b30-86b2-5efea7f5d2af": "fk_emplacement_camping",
+    "ecaa5bbe-7924-4dc9-b0a5-d977357bcdea": "fk_emplacement_categorie",
+    "a35a5219-7cca-4c3c-8632-3c5ea62c5f8c": "fk_sejour_client",
+    "311323e4-0f4a-410f-8c91-85f5a9394102": "fk_sejour_emplacement",
+    "d7979095-0649-4809-92ad-3cb2437de935": "fk_sejour_canal",
+    "51494567-29ea-4922-80dd-07a71a5a394a": "fk_ota_canal",
+    "76abae58-1b6e-4325-a1f7-20c60d8d8ef1": "fk_ota_emplacement",
+    "35ad4a43-768f-47fe-91cd-914e1c7d1de2": "fk_ota_sejour",
+    "dbecee89-8f3b-4e8b-b76d-ff3b0576785b": "fk_releve_emplacement",
+    "6b3dfde4-5ada-4a95-bad6-622d0bfd2a91": "fk_nuitee_sejour",
+    "1d01a7c7-53aa-4843-b781-069f49e447a6": "fk_nuitee_emplacement",
+    "3ed35f03-d239-4520-8ee6-b397f565b1d5": "fk_nuitee_camping",
+    "1a869fb2-5a39-48d5-90ea-f57ca8f9b090": "fk_nuitee_categorie",
+    "13d0b7a6-0399-4f99-8553-67890238ff66": "fk_nuitee_canal",
+    "684d5429-8b8b-4aa5-96f2-657320617cf2": "fk_dp_occ_camping",
+    "e025aa88-232e-4e09-8a62-4a874ee5ad8e": "fk_dp_occ_categorie",
+    "9da482c6-2267-4ac2-8ab3-c6e80829669a": "fk_identite_client",
+    "6242d595-83e2-4881-b808-06ea3cdfab14": "fk_consentement_client",
+    "9d94adbd-58a1-490e-a232-0368379e40fd": "fk_consentement_finalite",
+    "58d85bdc-5696-4cad-989c-671138a3d733": "date_nuit",
+    "14d70cac-9b7a-4faa-9782-39c6683fca67": "camping_nom",
+    "6e01c489-2564-4367-9acd-e0ff2c80921f": "categorie_code",
+    "87e3c6dc-f6ae-4bbf-8429-91af22837cc6": "nb_emplacements_disponibles",
+    "e70dc59e-ae60-42c0-be80-c25bb8608782": "nb_emplacements_occupes",
+    "7f5f1d60-7eee-49d8-a029-5da2e7b12b0b": "taux_occupation",
+    "9046b672-3b07-4326-a661-1d1441e90e53": "chiffre_affaires",
+    "2b0d9c8d-ff09-478e-a260-62d341b2b90f": "prix_moyen_nuit",
+    "9d7dafc2-eec3-4e39-b61f-b50863d6bb78": "revpar",
+    "7f469160-29ea-4f78-884f-debc73503276": "nb_nuitees_direct",
+    "1e8f6d2d-d75a-4861-a5c8-16de54839f57": "nb_nuitees_ota",
+    "d4754637-6859-4177-87ec-b8079e55f196": "part_direct",
+    "45fd3fa7-281c-4bc6-9043-c3fd6b54e805": "taux_occupation_n1",
+    "10dddc13-dad7-4071-8203-3965211616e9": "dp_occupation_yield"
+  },
+  "definitions": {
+    "type": "definitions",
+    "properties": [],
+    "GUID": "cff52d52-3154-4579-89d1-fa338972f049"
+  },
+  "polyglotDefinitions": {
+    "type": "polyglotDefinitions",
+    "properties": [],
+    "GUID": "b5f0081f-4843-4ca5-97d6-2dff478bf29d"
+  },
+  "externalDefinitions": {
+    "type": "externalDefinitions",
+    "properties": [],
+    "GUID": "b80643cc-8306-4c5c-bc2b-bc2fe66e8d8c"
+  },
+  "sources": [],
+  "decorativeSymbols": [],
+  "businessGlossaries": [],
+  "businessGlossaryTerms": [],
+  "dbVersion": "v18.x",
+  "dbVendor": "PostgreSQL",
+  "tablespace_name": "pg_default",
+  "encoding": "UTF8",
+  "appTarget": "PostgreSQL",
+  "creationTS": "2026-11-01T23:03:54.720Z",
+  "GUID": "2701d0e5-f502-46cd-855b-37cf81b775fc",
+  "isLineageEnabled": false,
+  "lastModifTS": "2026-11-01T23:08:01.387Z",
+  "persistenceSchemaVersion": "8",
+  "isCreatedByPlugin": true,
+  "pluginInformation": {
+    "pluginName": "PostgreSQL",
+    "pluginVersion": "0.2.52",
+    "pluginEngineVersion": "1.0.0"
+  },
+  "applicationInformation": {
+    "version": "8.13.7"
+  },
+  "settings": {
+    "centralPane": {
+      "dbLevel": {
+        "erd": [
+          {
+            "GUID": "6ef4a893-9c2c-41ad-a15e-db5490748d20",
+            "x": 1214,
+            "y": 1564,
+            "width": 269,
+            "height": 91,
+            "color": {}
+          },
+          {
+            "GUID": "c16b61a8-cb39-4bfd-80ae-2cd57c2ecef2",
+            "x": 1714,
+            "y": 1064,
+            "width": 236,
+            "height": 91,
+            "color": {}
+          },
+          {
+            "GUID": "996cf4de-9115-4033-9d8f-cfb88de79ac6",
+            "x": 1714,
+            "y": 1364,
+            "width": 325,
+            "height": 109,
+            "color": {}
+          },
+          {
+            "GUID": "5b4ffcc5-976b-4aa2-b786-1c91c81a7e4d",
+            "x": 1964,
+            "y": 1664,
+            "width": 258,
+            "height": 73,
+            "color": {}
+          },
+          {
+            "GUID": "40dfba20-4dad-4462-bd7f-6e299c6ca282",
+            "x": 1664,
+            "y": 1214,
+            "width": 267,
+            "height": 91,
+            "color": {}
+          },
+          {
+            "GUID": "f9bfeddf-fa7a-411d-9f8e-1e386e0185f7",
+            "x": 1664,
+            "y": 1814,
+            "width": 305,
+            "height": 199,
+            "color": {}
+          },
+          {
+            "GUID": "616d66e3-42ed-45f5-b790-04ec398d8266",
+            "x": 1564,
+            "y": 1564,
+            "width": 337,
+            "height": 181,
+            "color": {}
+          },
+          {
+            "GUID": "050a052c-e634-4f11-87cc-979e221eee38",
+            "x": 1314,
+            "y": 1364,
+            "width": 317,
+            "height": 109,
+            "color": {}
+          },
+          {
+            "GUID": "5280514f-351e-4eca-93a0-81853587d2c6",
+            "x": 1064,
+            "y": 2014,
+            "width": 304,
+            "height": 217,
+            "color": {}
+          },
+          {
+            "GUID": "e7410e92-8094-446b-bf69-b13e4966541e",
+            "x": 2014,
+            "y": 1064,
+            "width": 296,
+            "height": 217,
+            "color": {}
+          },
+          {
+            "GUID": "e9219514-8ef9-4f46-98be-df78160faef3",
+            "x": 1264,
+            "y": 1814,
+            "width": 317,
+            "height": 145,
+            "color": {}
+          },
+          {
+            "GUID": "99d03138-9dde-447a-b249-225ea573ff2f",
+            "x": 1314,
+            "y": 1164,
+            "width": 266,
+            "height": 145,
+            "color": {}
+          },
+          {
+            "GUID": "10dddc13-dad7-4071-8203-3965211616e9",
+            "x": 2438,
+            "y": 1064,
+            "width": 383,
+            "height": 271,
+            "color": {}
+          }
+        ],
+        "erdDefinitions": {
+          "erd": [],
+          "rootPath": [],
+          "entities": [],
+          "decorativeSymbols": []
+        },
+        "buckets": [
+          {
+            "x": 1000,
+            "y": 1000,
+            "GUID": "a7eaf63f-68aa-4898-ac0c-0b47eb4edcee"
+          },
+          {
+            "x": 2374,
+            "y": 1000,
+            "GUID": "9562764e-110f-48cb-90e1-c30b981c4964"
+          }
+        ],
+        "collapsedNodes": [],
+        "activeRelationship": "",
+        "activeRelationshipFields": {
+          "childField": [],
+          "parentField": []
+        },
+        "selectedCollections": [],
+        "displayColorPicker": false,
+        "graphView": {
+          "erd": [],
+          "buckets": [],
+          "decorativeSymbols": [],
+          "forceLayout": true,
+          "defaultLinkLength": 300
+        },
+        "diagramViews": [],
+        "decorativeSymbols": [],
+        "nestedCollectionsLayout": "horizontal",
+        "options": [],
+        "relationshipUpdateDisabled": false
+      },
+      "collectionLevel": {},
+      "changed": false
+    },
+    "dtDiagram": {
+      "collapsedNodes": [],
+      "shouldDistributeCollections": false
+    }
+  }
+}
